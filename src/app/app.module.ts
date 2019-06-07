@@ -1,30 +1,33 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
-import { AppRoutingModule, routingComponents } from './app-routing.module';
-
+import { AppRoutingModule } from './app-routing.module';
+import { SharedModule } from './shared/shared.module';
 import { PackagesModule } from './pages/packages/packages.module';
+import { HotelsModule } from './pages/hotels/hotels.module';
+import { FlightsModule } from './pages/flights/flights.module';
+import { PromosModule } from './pages/promos/promos.module';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { ContentComponent } from './content/content.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-
+import { NotFoundComponent } from './pages/common/not-found/not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    FooterComponent,
-    ContentComponent,
-    routingComponents,
-    PageNotFoundComponent
+    HeaderComponent, FooterComponent, NotFoundComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
-    PackagesModule
+    SharedModule,
+    PackagesModule,
+    HotelsModule,
+    FlightsModule,
+    PromosModule
   ],
   providers: [],
   bootstrap: [AppComponent]

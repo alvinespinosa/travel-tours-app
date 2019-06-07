@@ -1,19 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PackageListComponent } from './package-list/package-list.component';
-import { PackageDetailsComponent } from './package-list/package-details/package-details.component';
+import { PackageCardComponent } from './package-card/package-card.component';
+import { PackageDetailsComponent } from './package-card/package-details/package-details.component';
 import { PackagesComponent } from './packages.component';
 
 @NgModule({
   declarations: [
-    PackageListComponent,
+    PackageCardComponent,
     PackageDetailsComponent,
     PackagesComponent
   ],
   exports: [
-    PackageListComponent,
-    PackageDetailsComponent,
-    PackagesComponent
+    // PackageCardComponent,
+    // PackageDetailsComponent,
+    // PackagesComponent
   ],
   imports: [
     CommonModule
