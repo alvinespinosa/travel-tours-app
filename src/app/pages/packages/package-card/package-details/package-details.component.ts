@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, ParamMap } from '@angular/router';
+import { PackageService } from 'src/app/shared/services/package.service';
 
 @Component({
   selector: 'app-package-details',
@@ -8,12 +9,19 @@ import { ActivatedRoute, Router, ParamMap } from '@angular/router';
 })
 export class PackageDetailsComponent implements OnInit {
   public packageId;
-  constructor(private route: ActivatedRoute, private router: Router) { }
+  public package;
+  constructor(
+    private packageService: PackageService,
+    private route: ActivatedRoute,
+    private router: Router) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe((params: ParamMap) => {
-      let id = parseInt(params.get('id'));
+      const id = params.get('id');
       this.packageId = id;
+
+      this.packageService.getPackage(id)
+      .subscribe(data => this.package = data);
     });
   }
 

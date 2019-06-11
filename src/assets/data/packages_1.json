@@ -1,0 +1,6 @@
+{
+  "id": 24, "location": "Valenzuela", "price": 200, "img": "../",
+  "dates": [{},{}],
+  "flights": [{},{}],
+  "guest": 5
+}

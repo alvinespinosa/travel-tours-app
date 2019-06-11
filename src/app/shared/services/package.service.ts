@@ -9,14 +9,23 @@ import { catchError } from 'rxjs/operators';
 })
 export class PackageService {
 
-  private url = '/assets/data/packages.json';
+  private url: string;
 
   constructor(private http: HttpClient) { }
 
   getPackages(): Observable<Package[]> {
+    this.url = '/assets/data/packages.json';
+
     return this.http
       .get<Package[]>(this.url)
       .pipe(catchError(err => throwError(err)));
   }
 
+  getPackage(id: string): Observable<Package> {
+    this.url = '/assets/data/packages_1.json';
+
+    return this.http
+      .get<Package>(this.url)
+      .pipe(catchError(err => throwError(err)));
+  }
 }
